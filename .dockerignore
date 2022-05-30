@@ -1,0 +1,10 @@
+
+.gitmodules
+coffee-order/
+.git/
+.github/
+vendor/
+node_modules/
+public/js/
+public/css/
+docker/Dockerfile

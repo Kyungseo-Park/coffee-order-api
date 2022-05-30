@@ -9,5 +9,7 @@
 git clone git@github.com:Kyungseo-Park/coffee-order-api.git
 # git submodule add git@github.com:northfacegawd/coffee-order.git coffee-order
 git submodule foreach git checkout master
+
+## 작성중..
 ./run.sh
 ```
