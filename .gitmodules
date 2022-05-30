@@ -1,0 +1,4 @@
+[submodule "coffee-order"]
+	path = coffee-order
+	url = git@github.com:northfacegawd/coffee-order.git
+	branch = master
