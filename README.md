@@ -20,3 +20,7 @@ git submodule foreach git checkout master
 ## 작성중..
 ./run.sh
 ```
+
+## 환경변수
+ - .env.example 에 환경변수가 있다.
+ - production 환경에서는 도커 이미지를 컨테이너로 생성할 때 덮어 씌우기 때문에 example 은 노출 되어도 된다.

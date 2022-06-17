@@ -8,3 +8,5 @@ node_modules/
 public/js/
 public/css/
 docker/Dockerfile
+docker/shm
+docker/redis

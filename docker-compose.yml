@@ -2,7 +2,6 @@ version: '3'
 
 services:
     coffee-api:
-        user: "1001"
         container_name: coffee-api
         build:
             context: .
@@ -13,6 +12,8 @@ services:
             - '.:/var/www/html'
         environment:
             - DB_HOST=coffee-db
+            - WWWGROUP=1000
+            - WWWUSER=1000
         networks:
             - registry-net
         depends_on:
@@ -41,7 +42,7 @@ services:
         container_name: coffee-redis
         image: 'redis:alpine'
         volumes:
-            - './docker/sail-redis:/data'
+            - './docker/redis:/data'
         networks:
             - registry-net
         healthcheck:
