@@ -5,7 +5,8 @@ services:
         user: "1001"
         container_name: coffee-api
         build:
-            context: ./docker/Dockerfile
+            context: .
+            dockerfile: ./docker/Dockerfile
         ports:
             - '8000:80'
         volumes:
