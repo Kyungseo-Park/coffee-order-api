@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('Invitation_link')->comment('초대링크');
+            $table->enum('auth',['master', 'barista', 'employee', 'guest'])->default('guest')->comment('권한');
             $table->rememberToken();
             $table->timestamps();
         });
