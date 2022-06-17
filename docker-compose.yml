@@ -39,8 +39,6 @@ services:
     coffee-redis:
         container_name: coffee-redis
         image: 'redis:alpine'
-        ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
             - './docker/sail-redis:/data'
         networks:
