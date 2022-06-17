@@ -1,8 +1,9 @@
 version: '3'
+
 services:
-    coffie-order-api:
+    coffee-api:
         user: "1001"
-        container_name: coffie-order-api
+        container_name: coffee-api
         build:
             context: ./docker/Dockerfile
         ports:
@@ -10,13 +11,16 @@ services:
         volumes:
             - '.:/var/www/html'
         environment:
-            - DB_HOST=coffie-order-db
+            - DB_HOST=coffee-db
         networks:
-            - coffie
+            - registry-net
         depends_on:
-            - coffie-order-db
-    coffie-order-db:
-        container_name: coffie-order-db
+            - coffee-db
+            - coffee-redis
+            - coffee-selenium
+
+    coffee-db:
+        container_name: coffee-db
         image: 'mysql/mysql-server:8.0'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
@@ -26,11 +30,34 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         networks:
-            - coffie
+            - registry-net
         healthcheck:
             test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
             retries: 3
             timeout: 5s
+
+    coffee-redis:
+        container_name: coffee-redis
+        image: 'redis:alpine'
+        ports:
+            - '${FORWARD_REDIS_PORT:-6379}:6379'
+        volumes:
+            - './docker/sail-redis:/data'
+        networks:
+            - registry-net
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            retries: 3
+            timeout: 5s
+
+    coffee-selenium:
+        container_name: coffee-selenium
+        image: 'selenium/standalone-chrome'
+        volumes:
+            - './docker/shm:/dev/shm'
+        networks:
+            - registry-net
+
 networks:
-    coffie:
+    registry-net:
         external: true
