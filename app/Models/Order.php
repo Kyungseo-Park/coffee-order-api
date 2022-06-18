@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order query()
  * @mixin \Eloquent
+ * @property-read \App\Models\Product|null $product
+ * @property-read \App\Models\User|null $user
  */
 class Order extends Model
 {

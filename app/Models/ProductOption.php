@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductOption newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductOption query()
  * @mixin \Eloquent
+ * @property-read \App\Models\Option|null $option
+ * @property-read \App\Models\Product|null $product
  */
 class ProductOption extends Model
 {

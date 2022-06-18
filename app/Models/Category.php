@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category query()
  * @mixin \Eloquent
+ * @property-read \App\Models\Office|null $office
  */
 class Category extends Model
 {

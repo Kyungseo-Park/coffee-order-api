@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Option newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Option query()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductOption[] $productOptions
+ * @property-read int|null $product_options_count
  */
 class Option extends Model
 {
