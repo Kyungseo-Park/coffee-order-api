@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name_en');
             $table->string('name_ko');
             $table->string('thumbnail')->nullable()->comment('옵션 이미지');
-            $table->unsignedBigInteger('sort')->default(DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'))->comment('디폴트 시간');
+            $table->unsignedBigInteger('sort')->default(0)->comment('디폴트 시간');
             $table->timestamps();
         });
     }
