@@ -31,9 +31,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
+        'email_verified_at',
         'password',
+        'Invitation_link',
+        'auth',
     ];
 
     /**
@@ -54,4 +58,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User 에는 1개의 office 가 있다.
+    public function office(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\Office', 'office_id');
+    }
+
+    // User 는 N개의 orders 가 있다.
+    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\Order', 'order_id');
+    }
+
 }
