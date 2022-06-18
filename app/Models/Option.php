@@ -14,6 +14,20 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductOption[] $productOptions
  * @property-read int|null $product_options_count
+ * @property int $id
+ * @property string $name_en
+ * @property string $name_ko
+ * @property string|null $thumbnail 옵션 이미지
+ * @property int $sort 디폴트 시간
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereNameEn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereNameKo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereThumbnail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereUpdatedAt($value)
  */
 class Option extends Model
 {

@@ -14,6 +14,22 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \App\Models\Product|null $product
  * @property-read \App\Models\User|null $user
+ * @property int $id
+ * @property int $user_id 직원 ID
+ * @property int $product_id 상품 ID
+ * @property mixed|null $options 옵션
+ * @property int $status 주문 상태(true 조리 완료)
+ * @property int $star 주문 음료를 북마크로
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereStar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
  */
 class Order extends Model
 {

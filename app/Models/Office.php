@@ -16,6 +16,24 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $categories_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
  * @property-read int|null $users_count
+ * @property int $id
+ * @property string $name 지점
+ * @property string $timezone 시간대
+ * @property string $address 주소
+ * @property int $user_id 소속 직원
+ * @property int $open_time 여는 시간 (1440 저장)
+ * @property int $close_time 닫는 시간 (1440 저장)
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereCloseTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereOpenTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Office whereUserId($value)
  */
 class Office extends Model
 {
