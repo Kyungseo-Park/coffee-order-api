@@ -14,8 +14,12 @@ trait ApiResponse
      * @param int $statusCode
      * @return JsonResponse
      */
-    public function successResponse(mixed $data, int $statusCode = Response::HTTP_OK): JsonResponse
+    public function successResponse(mixed $data, string $message = '', int $statusCode = Response::HTTP_OK): JsonResponse
     {
+        $data = [
+            'message' => $message,
+            'data' => $data,
+        ];
         return new JsonResponse($data, $statusCode);
     }
 
