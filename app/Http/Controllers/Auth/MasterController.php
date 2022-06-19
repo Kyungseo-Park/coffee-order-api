@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\UserRepository;
 use App\Models\User;
 use App\Traits\ApiResponse;
 
@@ -10,6 +11,12 @@ class MasterController extends Controller
 {
     use ApiResponse;
 
+    protected UserRepository $userRepository;
+
+    public function __construct()
+    {
+        $this->userRepository = new UserRepository;
+    }
 
     public function backdoor()
     {
@@ -24,4 +31,11 @@ class MasterController extends Controller
         ]);
         return $this->okResponse($user);
     }
+
+    public function me()
+    {
+        $userInfo = $this->userRepository->getUserInfo('master');
+        return $this->successResponse($userInfo);
+    }
+
 }
