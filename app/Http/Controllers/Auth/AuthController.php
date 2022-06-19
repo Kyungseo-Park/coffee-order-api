@@ -28,9 +28,8 @@ class AuthController extends Controller
         // false | token
         $token = auth()->guard($auth)->attempt(['email' => $email, 'password' => $password]);
         if (!$token) {
-            return $this->notFoundResponse($token, 'Password Not Found');
+            return $this->badRequestResponse('Password Not Found');
         }
-
         return $this->respondWithToken($token, $auth);
     }
 
