@@ -40,6 +40,22 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'master' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+        'barista' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+        'employee' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+        'guest' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ]
     ],
 
     /*
