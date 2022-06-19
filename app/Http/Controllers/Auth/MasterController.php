@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
+use App\Http\Requests\InvitationRequest;
 use App\Models\User;
 use App\Traits\ApiResponse;
 
@@ -38,4 +39,15 @@ class MasterController extends Controller
         return $this->successResponse($userInfo);
     }
 
+    public function sendAnInvitation(InvitationRequest $invitationRequest)
+    {
+        // 사용자 검사 했음
+        if (auth('master')->user()->auth !== 'master') {
+            return $this->forbiddenResponse(["data" => '넌 권한이 없지롱']);
+        }
+
+        // TODO: 메일 발송 큐 등록해야함
+        $addInvitation = $this->userRepository->addInvitation($invitationRequest);
+        return $this->successResponse($addInvitation);
+    }
 }

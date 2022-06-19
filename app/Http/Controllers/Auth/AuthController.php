@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
+use App\Http\Requests\InvitationRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Traits\ApiResponse;
 
@@ -40,5 +41,11 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->guard($auth)->factory()->getTTL() * 60
         ]);
+    }
+
+    public function me()
+    {
+        $userInfo = $this->userRepository->getUserInfo('master');
+        return $this->successResponse($userInfo);
     }
 }

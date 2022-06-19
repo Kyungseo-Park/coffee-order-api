@@ -19,7 +19,6 @@ class EmployeeController extends Controller
 
     public function me()
     {
-        $userInfo = $this->userRepository->getUserInfo('employee');
-        return $this->successResponse($userInfo);
+        return $this->successResponse(auth()->user());
     }
 }
