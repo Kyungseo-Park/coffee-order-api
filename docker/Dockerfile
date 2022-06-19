@@ -1,10 +1,10 @@
 # Composer
 FROM composer:latest as composer
 
-RUN mkdir -p /otp/composer
-WORKDIR /otp/composer
+RUN mkdir -p /app
+WORKDIR /app
 
-COPY composer.json composer.lock /otp/composer/
+COPY composer.json composer.lock /app/
 
 RUN composer install \
     --ignore-platform-reqs \
@@ -19,7 +19,7 @@ WORKDIR /var/www/html/
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-COPY --from=composer /app/build/composer ./var/www/html/composer
+COPY --from=composer /app/vendor ./var/www/html/vendor
 COPY . .
 
 RUN mv .env.example .env
