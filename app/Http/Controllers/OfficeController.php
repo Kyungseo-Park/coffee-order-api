@@ -2,32 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Office;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use OpenApi\Annotations as OA;
+use App\Http\Repositories\OfficeRepository;
+use App\Http\Requests\OfficeRequest;
+use App\Traits\ApiResponse;
+use JetBrains\PhpStorm\Pure;
 
 class OfficeController extends Controller
 {
-    /**
-     * Get Component Name and Component Description
-     *
-     * @param Request $request
-     * @return Application|Factory|View
-     */
-    public function office(Request $request)
+    use ApiResponse;
+
+    protected OfficeRepository $officeRepository;
+
+    #[Pure] public function __construct()
     {
-        // N개의 office 정보를 가지고 옴
-        $service = Office::get();
+        $this->officeRepository = new OfficeRepository;
+    }
 
+    /**
+     * Display a listing of the resource.
+     *
+     */
+    public function getAll()
+    {
+        $offices = $this->officeRepository->getAll();
+        return $this->okResponse($offices);
+    }
 
-        // 1개의 office 에서 연관관계가 있는 user의 컬럼을 가지고옴
-        // foreach ($offices as $office) {
-        //     $office->user;
-        // }
-
-        return view('welcome', compact('service'));
+    public function addOffice(OfficeRequest $request)
+    {
+        $offices = $this->officeRepository->create($request);
+        return $this->okResponse($offices);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\MasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1', function () {
-    Route::get('office', \App\Http\Controllers\OfficeController::class, 'office');
-});
-
 Route::prefix('v1')->group(function () {
+    Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getAll']);
+
+    Route::prefix('auth')->controller(AuthController::class)->group(function () {
+        // 토큰 필요 X
+        Route::get('login', 'login');
+        Route::post('register', 'register');
+
+
+        // 토큰 필요
+        Route::get('me', 'me');
+        Route::get('logout', 'logout');
+        Route::get('refresh', 'refresh');
+    });
+
     Route::prefix('auth/master')->controller(MasterController::class)->group(function () {
         Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', 'backdoor');
     });
