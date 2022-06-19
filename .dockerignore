@@ -5,6 +5,6 @@ node_modules/
 public/js/
 public/css/
 docker/Dockerfile
-.env
+
 docker/shm/
 docker/redis/

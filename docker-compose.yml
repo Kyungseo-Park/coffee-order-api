@@ -8,15 +8,20 @@ services:
             dockerfile: ./docker/Dockerfile
         ports:
             - '8000:80'
+            - '8080:8000'
         volumes:
             - '.:/var/www/html'
         environment:
-            - DB_HOST='{DB_HOST}'
-            - DB_USERNAME='${DB_USERNAME}'
-            - DB_PASSWORD='${DB_PASSWORD}'
-            - DB_DATABASE='${DB_DATABASE}'
-            - WWWGROUP=1000
-            - WWWUSER=1000
+            DB_HOST: 'coffee-db'
+            DB_USERNAME: 'coffee'
+            DB_PASSWORD: 'coffee'
+            DB_DATABASE: 'coffee'
+            WWWGROUP: 1000
+            WWWUSER: 1000
+        links:
+            - coffee-db
+            - coffee-redis
+            - coffee-selenium
         networks:
             - registry-net
         depends_on:
@@ -28,16 +33,16 @@ services:
         container_name: coffee-db
         image: 'mysql/mysql-server:8.0'
         environment:
-            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_PASSWORD: 'coffee'
             MYSQL_ROOT_HOST: "%"
-            MYSQL_DATABASE: '${DB_DATABASE}'
-            MYSQL_USER: '${DB_USERNAME}'
-            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: 'coffee'
+            MYSQL_USER: 'coffee'
+            MYSQL_PASSWORD: 'coffee'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         networks:
             - registry-net
         healthcheck:
-            test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
+            test: [ "CMD", "mysqladmin", "ping", "-pcoffee" ]
             retries: 3
             timeout: 15s
 
@@ -49,7 +54,7 @@ services:
         networks:
             - registry-net
         healthcheck:
-            test: ["CMD", "redis-cli", "ping"]
+            test: [ "CMD", "redis-cli", "ping" ]
             retries: 3
             timeout: 5s
 
@@ -61,6 +66,18 @@ services:
         networks:
             - registry-net
 
+    coffee-pwd:
+        container_name: coffee-pwd
+        image: phpmyadmin/phpmyadmin
+        links:
+            - coffee-db
+        ports:
+            - "8001:80"
+        environment:
+            PMA_HOST: coffee-db
+            PMA_PORT: 3306
+        networks:
+            - registry-net
 networks:
     registry-net:
-        external: true
+        driver: bridge
