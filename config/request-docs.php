@@ -4,13 +4,13 @@ return [
      // change it to true will make lrd to throw exception if rules in request class need to be changed
      // keep it false
     'debug'  => false,
-    'document_name'  => 'LRD',
+    'document_name'  => 'DNSEver Coffee Order API',
 
     /*
     * Route where request docs will be served from
     * localhost:8080/request-docs
     */
-    'url' => 'request-docs',
+    'url' => '/api',
     'middlewares' => [
         //Example
         // \App\Http\Middleware\NotFoundWhenProduction::class,
