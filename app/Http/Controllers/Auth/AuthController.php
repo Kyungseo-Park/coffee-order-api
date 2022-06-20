@@ -48,4 +48,23 @@ class AuthController extends Controller
         $userInfo = $this->userRepository->getUserInfo('master');
         return $this->successResponse($userInfo);
     }
+
+    public function confirmAnInvitation()
+    {
+        return [];
+    }
+
+    public function register()
+    {
+        return [];
+    }
+
+    public function logout()
+    {
+        return [];
+    }
+
+    public function refresh(){
+        return [];
+    }
 }

@@ -194,11 +194,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // Swagger
-        L5Swagger\L5SwaggerServiceProvider::class,
 
         // Developer IDE Helper
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        // JWT
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
