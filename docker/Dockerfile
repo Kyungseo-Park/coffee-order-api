@@ -19,8 +19,9 @@ WORKDIR /var/www/html/
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-COPY --from=composer /app/vendor ./var/www/html/vendor
 COPY . .
 
 RUN cp docker/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN a2enmod headers
+
+COPY --from=composer /app/vendor ./var/www/html/vendor
