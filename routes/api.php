@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\BaristaController;
 use App\Http\Controllers\Auth\EmployeeController;
 use App\Http\Controllers\Auth\MasterController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,6 @@ Route::prefix('auth')->group(function () {
         Route::get('me', 'me'); // 내 정보 조회
     });
 });
+
+// Test 데이터 만드는 API
+  Route::get('test', [TestController::class, 'category']); // OK 내 정보 조회

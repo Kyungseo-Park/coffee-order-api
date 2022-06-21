@@ -18,8 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_ko');
+            $table->string('slug')->commnet("Slug");
             $table->string('thumbnail')->nullable()->comment('옵션 이미지');
-            $table->unsignedBigInteger('sort')->default(0)->comment('디폴트 시간');
+            $table->unsignedBigInteger('sort')->default(0)->comment('정렬 순서');
             $table->timestamps();
         });
     }

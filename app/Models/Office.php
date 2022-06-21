@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name 지점
  * @property string $timezone 시간대
  * @property string $address 주소
- * @property int $user_id 소속 직원
  * @property int $open_time 여는 시간 (1440 저장)
  * @property int $close_time 닫는 시간 (1440 저장)
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -50,7 +49,6 @@ class Office extends Model
         'name',
         'timezone',
         'address',
-        'user_id',
         'open_time',
         'close_time',
     ];
