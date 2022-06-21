@@ -22,12 +22,13 @@ class OfficeController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function getAll()
+    public function getOfficeList()
     {
         $offices = $this->officeRepository->getAll();
         return $this->okResponse($offices);
     }
 
+    // TODO: 아직 시작 안함
     public function addOffice(OfficeRequest $request)
     {
         $offices = $this->officeRepository->create($request);

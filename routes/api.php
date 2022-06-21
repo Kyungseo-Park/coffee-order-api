@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Public API
-Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getAll']);
+Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getOfficeList']);
 
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
