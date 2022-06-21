@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Option whereSort($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Option whereThumbnail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Option whereUpdatedAt($value)
+ * @property string $slug
+ * @method static \Illuminate\Database\Eloquent\Builder|Option whereSlug($value)
  */
 class Option extends Model
 {

@@ -29,6 +29,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereOfficeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereParents($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ * @property string $slug
+ * @property int $sort 정렬 순서(없을 경우 API에서 마지막에 추가
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSort($value)
  */
 class Category extends Model
 {

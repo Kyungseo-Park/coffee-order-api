@@ -36,6 +36,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereThumbnail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
+ * @property string $slug
+ * @property int $star 신메뉴
+ * @property int $sort 정렬 순서(없을 경우 API에서 마지막에 추가
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereStar($value)
  */
 class Product extends Model
 {
