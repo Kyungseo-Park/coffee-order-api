@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public API
 Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getOfficeList']);
+Route::get('coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeList']);
 
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {

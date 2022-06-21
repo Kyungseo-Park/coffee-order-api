@@ -47,7 +47,6 @@ class Product extends Model
 {
     use HasFactory;
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -57,15 +56,18 @@ class Product extends Model
         'id',
         'name_en',
         'name_ko',
+        'slug',
         'is_delete',
+        'star',
         'thumbnail',
+        'sort',
         'status',
     ];
 
     // Product 는 productOptions 과 N:N 관계 이다.
-    public function productOptions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function options(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->hasMany('App\Models\ProductOption', 'product_id');
+        return $this->belongsToMany('App\Models\Option', 'product_option');
     }
 
     // Product 는 order 과 N:N 관계 이다.
@@ -74,7 +76,7 @@ class Product extends Model
         return $this->hasMany('App\Models\Order', 'product_id');
     }
 
-    public function subcategory()
+    public function subcategory(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         // 쌸라쌸라
         return $this->hasMany('App\Models\Order', '패런트_id', '');

@@ -33,4 +33,9 @@ class OfficeRepository
     {
         return Office::delete();
     }
+
+    public function getOffice(int $id): Model|EloquentCollection|Office|array|null
+    {
+        return Office::find($id);
+    }
 }

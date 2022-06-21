@@ -49,8 +49,8 @@ class Option extends Model
     ];
 
     // order 는 Product 과 N:N 관계 이다.
-    public function productOptions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->hasMany('App\Models\ProductOption', 'option_id');
+        return $this->belongsToMany('App\Models\Product');
     }
 }

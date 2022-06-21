@@ -6,8 +6,8 @@ use App\Models\Category;
 use App\Models\Office;
 use App\Models\Option;
 use App\Models\Product;
-use App\Models\ProductOption;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class TestController extends Controller
@@ -130,7 +130,7 @@ class TestController extends Controller
             ["category_id" => 5, "slug" => Str::slug("Lemonade"), "name_ko" => "레몬에이드", "name_en" => "Lemonade", "thumbnail" => "", "sort" => 1, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
             ["category_id" => 5, "slug" => Str::slug("Grapefruit ade"), "name_ko" => "자몽에이드", "name_en" => "Grapefruit ade", "thumbnail" => "", "sort" => 2, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
             ["category_id" => 5, "slug" => Str::slug("Cherry ade"), "name_ko" => "체리에이드", "name_en" => "Cherry ade", "thumbnail" => "", "sort" => 3, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 5, "slug" => Str::slug("Lemon and Pomegranate shake"), "name_ko" => "레몬석류에이드", "name_en" => "Lemon and Pomegranate shake", "thumbnail" => "", "sort" => 4,  "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Lemon and Pomegranate shake"), "name_ko" => "레몬석류에이드", "name_en" => "Lemon and Pomegranate shake", "thumbnail" => "", "sort" => 4, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
             ["category_id" => 5, "slug" => Str::slug("Ginc ade"), "name_ko" => "진크에이드", "name_en" => "Ginc ade", "thumbnail" => "", "sort" => 5, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
         ];
         Product::insert($ade);
@@ -146,7 +146,7 @@ class TestController extends Controller
         $options = Option::all();
         foreach ($products as $value) {
             foreach ($options as $op) {
-                ProductOption::insert([
+                DB::table('product_option')->insert([
                     "product_id" => $value->id,
                     "option_id" => $op->id,
                     "created_at" => Carbon::now(),

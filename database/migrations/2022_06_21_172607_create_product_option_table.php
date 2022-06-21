@@ -13,8 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        // 샷추가는 거의 모든 item 에들어가야하는데 N번 추가해야함.
-        Schema::create('product_options', function (Blueprint $table) {
+        Schema::create('product_option', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Product::class)->comment('상품 ID');
             $table->foreignIdFor(\App\Models\Option::class)->comment('옵션id');
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_options');
+        Schema::dropIfExists('product_option');
     }
 };

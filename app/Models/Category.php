@@ -46,6 +46,7 @@ class Category extends Model
      */
     protected $fillable = [
         'id',
+        'slug',
         'name_en',
         'name_ko',
         'parents',
@@ -70,5 +71,10 @@ class Category extends Model
     public function office(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Office', 'office_id');
+    }
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\Product', 'category_id');
     }
 }
