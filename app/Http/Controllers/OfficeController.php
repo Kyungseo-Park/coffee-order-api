@@ -56,6 +56,16 @@ class OfficeController extends Controller
         return $this->createdResponse($offices, "Office Create Success");
     }
 
+    public function updateOffice(OfficeRequest $request, $id)
+    {
+        $office = $this->officeRepository->update($request, $id);
+        if (!$office) {
+            return $this->badRequestResponse('Office Update Failed');
+        }
+        $office = $this->officeRepository->getById($id);
+        return $this->okResponse($office, "Office Update Success");
+    }
+
     /** 커피와 관련된 API */
 
     // PREFIX: office id 뽑아야 함

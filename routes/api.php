@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getOfficeList']);
 Route::get('office/{id}', [\App\Http\Controllers\OfficeController::class, 'getOffice']);
 Route::get('category/{id}/coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeListByCategory']);
-
 Route::post('office', [\App\Http\Controllers\OfficeController::class, 'addOffice']);
+Route::put('office/{id}', [\App\Http\Controllers\OfficeController::class, 'updateOffice']);
 
 // TODO: API 권한에 따라 Middleware 구분 지어야 함
 Route::get('coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeList']);
@@ -58,4 +58,4 @@ Route::prefix('auth')->group(function () {
 });
 
 // Test 데이터 만드는 API
-  Route::get('test', [TestController::class, 'category']); // OK 내 정보 조회
+Route::get('test', [TestController::class, 'category']); // OK 내 정보 조회
