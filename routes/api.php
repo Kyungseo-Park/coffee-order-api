@@ -45,7 +45,6 @@ Route::prefix('auth')->group(function () {
     });
     Route::prefix('master')->middleware('auth:master')->controller(MasterController::class)->group(function () {
         Route::post('invitation', 'sendAnInvitation'); // invite 초대장 전송
-        Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', 'backdoor');
     });
 
     Route::prefix('barista')->middleware('auth:barista')->controller(BaristaController::class)->group(function () {
@@ -59,3 +58,4 @@ Route::prefix('auth')->group(function () {
 
 // Test 데이터 만드는 API
 Route::get('test', [TestController::class, 'category']); // OK 내 정보 조회
+Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', 'backdoor');
