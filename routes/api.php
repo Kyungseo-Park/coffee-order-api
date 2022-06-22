@@ -25,6 +25,7 @@ Route::get('category/{id}/coffee', [\App\Http\Controllers\OfficeController::clas
 
 Route::post('office', [\App\Http\Controllers\OfficeController::class, 'addOffice']);
 
+// TODO: API 권한에 따라 Middleware 구분 지어야 함
 Route::get('coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeList']);
 Route::get('coffee/{id}', [\App\Http\Controllers\OfficeController::class, 'getCoffee']);
 Route::post('coffee', [\App\Http\Controllers\OfficeController::class, 'addCoffee']);
