@@ -30,7 +30,13 @@ class OfficeController extends Controller
     public function getOfficeList()
     {
         $offices = $this->officeRepository->getAll();
-        return $this->okResponse($offices);
+        return $this->okResponse($offices, "Office List");
+    }
+
+    public function getOffice($id)
+    {
+        $office = $this->officeRepository->getById($id);
+        return $this->okResponse($office, "Office");
     }
 
     // PREFIX: office id 뽑아야 함
@@ -50,6 +56,6 @@ class OfficeController extends Controller
     public function addOffice(OfficeRequest $request)
     {
         $offices = $this->officeRepository->create($request);
-        return $this->okResponse($offices);
+        return $this->okResponse($offices, "Office Created");
     }
 }

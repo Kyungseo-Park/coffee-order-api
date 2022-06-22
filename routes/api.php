@@ -20,17 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 // Public API
 Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getOfficeList']);
+Route::get('office/{id}', [\App\Http\Controllers\OfficeController::class, 'getOffice']);
 Route::get('coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeList']);
 
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
         // 토큰 필요 X
-        Route::get('me', 'me'); // OK 내 정보 조회
         Route::get('login', 'login'); // OK  로그인
         Route::get('invitation/{token}', 'confirmAnInvitation'); // invite 초대장 조회 OK
         Route::put('invitation/{token}', 'getInvitationLinkByPassword'); // invite 초대장 조회 OK
 
         // 토큰 필요
+        Route::get('me', 'me'); // OK 내 정보 조회
         Route::get('logout', 'logout'); // 로그 아웃
         Route::get('refresh', 'refreshToken'); // 토큰 재발급
     });

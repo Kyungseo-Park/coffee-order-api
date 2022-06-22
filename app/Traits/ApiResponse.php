@@ -49,11 +49,12 @@ trait ApiResponse
      * Response with status code 200.
      *
      * @param mixed $data
+     * @param string $message
      * @return JsonResponse
      */
-    public function okResponse(mixed $data): JsonResponse
+    public function okResponse(mixed $data, string $message): JsonResponse
     {
-        return $this->successResponse($data);
+        return $this->successResponse($data, $message);
     }
 
     /**
