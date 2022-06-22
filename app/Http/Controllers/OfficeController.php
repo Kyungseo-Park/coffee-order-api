@@ -8,6 +8,7 @@ use App\Http\Requests\CoffeeRequest;
 use App\Http\Requests\OfficeRequest;
 use App\Http\Resources\CategoryCollection;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ProductResource;
 use App\Traits\ApiResponse;
 use JetBrains\PhpStorm\Pure;
 
@@ -91,7 +92,8 @@ class OfficeController extends Controller
     public function getCoffee($id)
     {
         $coffee = $this->coffeeRepository->getCoffee($id);
-        return $this->okResponse($coffee, "Coffee");
+        $product = ProductResource::collection([$coffee]);
+        return $this->successResponse($product, "Coffee");
     }
 
     /**
