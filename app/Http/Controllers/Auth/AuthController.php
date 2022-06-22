@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
 use App\Http\Requests\InvitationPasswordRequest;
-use App\Http\Requests\InvitationRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Traits\ApiResponse;
 
@@ -61,10 +60,17 @@ class AuthController extends Controller
 
     public function getInvitationLinkByPassword($token, InvitationPasswordRequest $request)
     {
+        // 토큰으로 사용자 조회
         $user = $this->userRepository->getTokenByInvitationLink($token);
         if (!$user) {
             return $this->badRequestResponse('Invitation Link Not Found');
         }
+
+        // 토큰 으로 비밀번호 변경은 60분 이내 가능
+        if ($user->created_at < now()->subMinutes(60)) {
+            return $this->badRequestResponse('Invitation Link Expired');
+        }
+
         $user->password = $request->password;
         $user->save();
         return $this->successResponse($user);
@@ -80,7 +86,8 @@ class AuthController extends Controller
         return [];
     }
 
-    public function refresh(){
+    public function refresh()
+    {
         return [];
     }
 }
