@@ -46,6 +46,9 @@ class AuthController extends Controller
     public function me()
     {
         $userInfo = $this->userRepository->getUserInfo();
+        if (!$userInfo) {
+            return $this->unauthorizedResponse($userInfo, "User Not Found");
+        }
         return $this->successResponse($userInfo);
     }
 
