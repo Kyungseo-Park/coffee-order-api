@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 // Public API
 Route::get('office', [\App\Http\Controllers\OfficeController::class, 'getOfficeList']);
 Route::get('office/{id}', [\App\Http\Controllers\OfficeController::class, 'getOffice']);
+Route::post('office', [\App\Http\Controllers\OfficeController::class, 'addOffice']);
+
 Route::get('coffee', [\App\Http\Controllers\OfficeController::class, 'getCoffeeList']);
 
 Route::prefix('auth')->group(function () {

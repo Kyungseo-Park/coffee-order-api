@@ -52,10 +52,16 @@ class OfficeController extends Controller
         return $this->successResponse($result);
     }
 
-    // TODO: 아직 시작 안함
+    /**
+     * @param OfficeRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addOffice(OfficeRequest $request)
     {
         $offices = $this->officeRepository->create($request);
-        return $this->okResponse($offices, "Office Created");
+        if (!$offices) {
+            return $this->badRequestResponse('Office Create Failed');
+        }
+        return $this->createdResponse($offices, "Office Create Success");
     }
 }
