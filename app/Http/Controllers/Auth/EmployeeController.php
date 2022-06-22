@@ -16,9 +16,4 @@ class EmployeeController extends Controller
     {
         $this->userRepository = new UserRepository;
     }
-
-    public function me()
-    {
-        return $this->successResponse(auth()->user());
-    }
 }

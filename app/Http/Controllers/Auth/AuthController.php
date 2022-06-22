@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
+use App\Http\Requests\InvitationPasswordRequest;
 use App\Http\Requests\InvitationRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Traits\ApiResponse;
@@ -45,13 +46,28 @@ class AuthController extends Controller
 
     public function me()
     {
-        $userInfo = $this->userRepository->getUserInfo('master');
+        $userInfo = $this->userRepository->getUserInfo();
         return $this->successResponse($userInfo);
     }
 
-    public function confirmAnInvitation()
+    public function confirmAnInvitation(string $token)
     {
-        return [];
+        $user = $this->userRepository->getTokenByInvitationLink($token);
+        if (!$user) {
+            return $this->badRequestResponse('Invitation Link Not Found');
+        }
+        return $this->successResponse($user);
+    }
+
+    public function getInvitationLinkByPassword($token, InvitationPasswordRequest $request)
+    {
+        $user = $this->userRepository->getTokenByInvitationLink($token);
+        if (!$user) {
+            return $this->badRequestResponse('Invitation Link Not Found');
+        }
+        $user->password = $request->password;
+        $user->save();
+        return $this->successResponse($user);
     }
 
     public function register()

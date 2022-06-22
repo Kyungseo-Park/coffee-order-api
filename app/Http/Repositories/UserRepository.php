@@ -4,6 +4,8 @@ namespace App\Http\Repositories;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class UserRepository
@@ -27,9 +29,9 @@ class UserRepository
      * @param String $auth
      * @return Authenticatable|User|null
      */
-    public function getUserInfo(string $auth): User|Authenticatable|null
+    public function getUserInfo(): User|Authenticatable|null
     {
-        return auth($auth)->user();
+        return auth()->user();
     }
 
     /**
@@ -46,5 +48,14 @@ class UserRepository
         $data->office_id = $guest->office_id;
         $data->save();
         return $data;
+    }
+
+    /**
+     * @param string $token
+     * @return Model|Builder|User|null
+     */
+    public function getTokenByInvitationLink(string $token): Model|Builder|User|null
+    {
+        return $this->user->whereInvitationLink($token)->first();
     }
 }

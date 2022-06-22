@@ -27,16 +27,14 @@ Route::prefix('auth')->group(function () {
         // 토큰 필요 X
         Route::get('me', 'me'); // OK 내 정보 조회
         Route::get('login', 'login'); // OK  로그인
-        Route::get('invitation/{token}', 'confirmAnInvitation'); // invite 초대장 조회
-        Route::post('register', 'register'); // 회원 가입
-
+        Route::get('invitation/{token}', 'confirmAnInvitation'); // invite 초대장 조회 OK
+        Route::put('invitation/{token}', 'getInvitationLinkByPassword'); // invite 초대장 조회 OK
+        Route::post('register', 'register'); // PASSWORD RESET 기능과 동일
         // 토큰 필요
         Route::get('logout', 'logout'); // 로그 아웃
         Route::get('refresh', 'refresh'); // 토큰 재발급
     });
-
     Route::prefix('master')->middleware('auth:master')->controller(MasterController::class)->group(function () {
-        Route::get('me', 'me'); // 내 정보 조회
         Route::post('invitation', 'sendAnInvitation'); // invite 초대장 전송
         Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', 'backdoor');
     });
@@ -46,7 +44,7 @@ Route::prefix('auth')->group(function () {
     });
 
     Route::prefix('employee')->middleware('auth:employee')->controller(EmployeeController::class)->group(function () {
-        Route::get('me', 'me'); // 내 정보 조회
+
     });
 });
 

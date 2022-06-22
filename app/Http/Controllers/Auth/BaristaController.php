@@ -16,10 +16,4 @@ class BaristaController extends Controller
     {
         $this->userRepository = new UserRepository;
     }
-
-    public function me()
-    {
-        $userInfo = $this->userRepository->getUserInfo('barista');
-        return $this->successResponse($userInfo);
-    }
 }
