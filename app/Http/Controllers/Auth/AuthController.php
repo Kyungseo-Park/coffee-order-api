@@ -83,11 +83,13 @@ class AuthController extends Controller
 
     public function logout()
     {
-        return [];
+        auth()->logout();
+        return $this->successResponse(['message' => 'Logout Success']);
     }
 
-    public function refresh()
+    public function refreshToken()
     {
-        return [];
+        $refresh = $this->respondWithToken(auth()->refresh());
+        return $this->successResponse($refresh);
     }
 }
