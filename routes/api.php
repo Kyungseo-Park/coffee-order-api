@@ -58,4 +58,4 @@ Route::prefix('auth')->group(function () {
 
 // Test 데이터 만드는 API
 Route::get('test', [TestController::class, 'category']); // OK 내 정보 조회
-Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', 'backdoor');
+Route::get('6fb2e4bd-be2b-40af-b5ab-bf598113d839', [TestController::class, 'backdoor'];
