@@ -1,5 +1,5 @@
 # Frontend
-FROM node:14.19.0 as frontend
+FROM node:14.19.0
 
 RUN mkdir -p /app/public
 
