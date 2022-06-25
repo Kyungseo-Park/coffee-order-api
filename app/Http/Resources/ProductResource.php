@@ -15,11 +15,11 @@ class ProductResource extends JsonResource
      * @param \Illuminate\Http\Request $request
      * @return array|ArrayableAlias|JsonSerializable
      */
-    #[ArrayShape(["name_en" => "mixed", "name_ko" => "mixed", "slug" => "mixed", "is_delete" => "mixed", "star" => "mixed", "thumbnail" => "mixed", "sort" => "mixed", "status" => "mixed"])]
     public function toArray($request): array|JsonSerializable|ArrayableAlias
     {
         // return parent::toArray($request);
         return [
+            "id" => $this->id,
             "name_en" => $this->name_en,
             "name_ko" => $this->name_ko,
             "slug" => $this->slug,
