@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->boolean('star')->default(true)->comment('신메뉴');
             $table->string('thumbnail')->comment('썸네일 필수(없으면 default api에서)');
             $table->unsignedTinyInteger('sort')->comment('정렬 순서(없을 경우 API에서 마지막에 추가');
-            $table->enum('status', ['sell', 'suspend', 'be_sold', 'soldout'])->default('be_sold')->comment('판매중, 판매중단, 출시예정, 품절');
+            $table->enum('status', ['sell', 'suspend', 'be_sold', 'sold_out'])->default('be_sold')->comment('판매중, 판매중단, 출시예정, 품절');
             $table->timestamps();
         });
     }
