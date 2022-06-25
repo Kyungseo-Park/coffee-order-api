@@ -1,5 +1,5 @@
-FROM docker.kkyungvelyy.com/coffee-order-api:package as package
-FROM docker.kkyungvelyy.com/coffee-order-api:composer as composer
+FROM docker.kkyungvelyy.com/coffee-order/api:package as package
+FROM docker.kkyungvelyy.com/coffee-order/api:composer as composer
 
 # Application
 FROM ubuntu/apache2
