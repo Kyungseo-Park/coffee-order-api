@@ -1,5 +1,6 @@
 {
     "private": true,
+    "description": "DNSEver 커피 주문 API",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",

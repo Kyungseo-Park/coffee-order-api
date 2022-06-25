@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "DNSEver Coffee 주문 API.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {

@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  service-build:
     runs-on: ubuntu-latest
     if: ${{ always() }}
     needs: [ 'composer-build', 'package-build' ]
