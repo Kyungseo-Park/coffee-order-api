@@ -9,10 +9,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  service-build:
+  build:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [ 'composer-build', 'package-build' ]
     steps:
       - uses: actions/checkout@v1
       - name: Docker login
