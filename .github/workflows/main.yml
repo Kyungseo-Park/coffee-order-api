@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  depoly:
+  build:
     if: ${{ always() }}
     needs: [ 'composer-build', 'package-build' ]
     runs-on: ubuntu-latest
