@@ -93,7 +93,7 @@ class OfficeController extends Controller
     {
         $coffee = $this->coffeeRepository->getCoffee($id);
         $product = ProductResource::collection([$coffee]);
-        return $this->successResponse($product, "Coffee");
+        return $this->successResponse($product[0], "Coffee");
     }
 
     /**
