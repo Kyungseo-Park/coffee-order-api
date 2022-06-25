@@ -1,5 +1,5 @@
 # Composer
-FROM composer:latest as composer
+FROM composer:latest
 
 RUN mkdir -p /app
 WORKDIR /app
