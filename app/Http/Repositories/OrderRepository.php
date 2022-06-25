@@ -17,6 +17,10 @@ class OrderRepository
         $this->order = new Order;
     }
 
+    /**
+     * @param OrderRequest $orderRequest
+     * @return Order
+     */
     public function toPlaceAnOrder(OrderRequest $orderRequest): Order
     {
         $order = $this->order;

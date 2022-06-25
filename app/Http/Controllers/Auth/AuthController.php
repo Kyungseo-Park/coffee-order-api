@@ -20,6 +20,10 @@ class AuthController extends Controller
     }
 
 
+    /**
+     * @param UserLoginRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(UserLoginRequest $request)
     {
         $email = $request->email;
@@ -34,6 +38,11 @@ class AuthController extends Controller
         return $this->respondWithToken($token, $auth);
     }
 
+    /**
+     * @param $token
+     * @param $auth
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function respondWithToken($token, $auth)
     {
         return $this->successResponse([
@@ -43,6 +52,9 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function me()
     {
         $userInfo = $this->userRepository->getUserInfo();
@@ -52,6 +64,10 @@ class AuthController extends Controller
         return $this->successResponse($userInfo);
     }
 
+    /**
+     * @param string $token
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function confirmAnInvitation(string $token)
     {
         $user = $this->userRepository->getTokenByInvitationLink($token);
@@ -61,6 +77,11 @@ class AuthController extends Controller
         return $this->successResponse($user);
     }
 
+    /**
+     * @param $token
+     * @param InvitationPasswordRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getInvitationLinkByPassword($token, InvitationPasswordRequest $request)
     {
         // 토큰으로 사용자 조회
@@ -84,18 +105,27 @@ class AuthController extends Controller
         return [];
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout()
     {
         auth()->logout();
         return $this->successResponse(['message' => 'Logout Success']);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function refreshToken()
     {
         $refresh = $this->respondWithToken(auth()->refresh());
         return $this->successResponse($refresh);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getMyOrderList()
     {
         $userInfo = $this->userRepository->getUserInfo();

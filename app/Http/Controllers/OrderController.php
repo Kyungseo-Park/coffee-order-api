@@ -17,12 +17,17 @@ class OrderController extends Controller
     protected CoffeeRepository $coffeeRepository;
     protected OrderRepository $orderRepository;
 
-    #[Pure] public function __construct()
+    #[Pure]
+    public function __construct()
     {
         $this->officeRepository = new OfficeRepository;
         $this->coffeeRepository = new CoffeeRepository;
     }
 
+    /**
+     * @param OrderRequest $orderRequest
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function toPlaceAnOrder(OrderRequest $orderRequest)
     {
         try {
