@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Repositories\CoffeeRepository;
 use App\Http\Repositories\OfficeRepository;
 use App\Http\Repositories\OrderRepository;
+use App\Http\Requests\OrderRequest;
 use App\Traits\ApiResponse;
-use Illuminate\Http\Request;
 use JetBrains\PhpStorm\Pure;
 
 class OrderController extends Controller
@@ -23,11 +23,12 @@ class OrderController extends Controller
         $this->coffeeRepository = new CoffeeRepository;
     }
 
-    public function toPlaceAnOrder(Request $request)
+    public function toPlaceAnOrder(OrderRequest $orderRequest)
     {
-        $order = $this->orderRepository->toPlaceAnOrder($request);
-        if (!$order) {
-            return $this->badRequestResponse('Order Create Failed');
+        try {
+            $order = $this->orderRepository->toPlaceAnOrder($orderRequest);
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 400);
         }
         return $this->createdResponse($order, "Order Create Success");
     }
