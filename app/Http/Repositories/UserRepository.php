@@ -58,4 +58,9 @@ class UserRepository
     {
         return $this->user->whereInvitationLink($token)->first();
     }
+
+    public function getMyOrderList(int $id)
+    {
+        return $this->user->find($id)->orders;
+    }
 }

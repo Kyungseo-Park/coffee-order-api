@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\BaristaController;
 use App\Http\Controllers\Auth\EmployeeController;
 use App\Http\Controllers\Auth\MasterController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,11 @@ Route::prefix('auth')->group(function () {
         Route::get('me', 'me'); // OK 내 정보 조회
         Route::get('logout', 'logout'); // 로그 아웃
         Route::get('refresh', 'refreshToken'); // 토큰 재발급
+
+        Route::get('me/order', 'getMyOrderList'); // 나의 주문 목록 조회
     });
+
+    Route::post('order', [OrderController::class, 'toPlaceAnOrder']); // 주문 목록 조회
     Route::prefix('master')->middleware('auth:master')->controller(MasterController::class)->group(function () {
         Route::post('invitation', 'sendAnInvitation'); // invite 초대장 전송
     });

@@ -95,4 +95,14 @@ class AuthController extends Controller
         $refresh = $this->respondWithToken(auth()->refresh());
         return $this->successResponse($refresh);
     }
+
+    public function getMyOrderList()
+    {
+        $userInfo = $this->userRepository->getUserInfo();
+        if (!$userInfo) {
+            return $this->unauthorizedResponse($userInfo, "User Not Found");
+        }
+        $myOrderList = $this->userRepository->getMyOrderList($userInfo->id);
+        return $this->successResponse($myOrderList);
+    }
 }
