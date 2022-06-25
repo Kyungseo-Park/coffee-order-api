@@ -2,7 +2,8 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "DNSEver Coffee 주문 API.",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["DNSEver", "Coffee", "API"],
+    "homepage": "coffee.kspark.link",
     "license": "MIT",
     "require": {
         "php": ">=8.0.2",

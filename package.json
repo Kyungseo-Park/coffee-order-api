@@ -1,6 +1,9 @@
 {
     "private": true,
     "description": "DNSEver 커피 주문 API",
+    "name": "DNSEver Coffee Order API",
+    "version": "1.0.0",
+    "url": "https://coffee.kspark.link/api",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
