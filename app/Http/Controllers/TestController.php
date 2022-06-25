@@ -68,11 +68,11 @@ class TestController extends Controller
         Product::insert($teas);
 
         $drinks = [
-            ["category_id" => 3, "slug" => Str::slug("Green tea latte"), "name_ko" => "녹차라떼", "name_en" => "Green tea latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/green-tea-latte.jpg", "sort" => 1, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 3, "slug" => Str::slug("Chocolate latte"), "name_ko" => "초코라떼", "name_en" => "Chocolate latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/chocolate-latte.jpg", "sort" => 2, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 3, "slug" => Str::slug("Sweet potato latte"), "name_ko" => "고구마라떼", "name_en" => "Sweet potato latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/sweet-potato-latte.jpg", "sort" => 3, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 3, "slug" => Str::slug("Grain latte"), "name_ko" => "곡물라떼", "name_en" => "Grain latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/grain-latte.jpg", "sort" => 4, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 3, "slug" => Str::slug("Strawberry latte"), "name_ko" => "딸기라떼", "name_en" => "Strawberry latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/strawberry-latte.jpg", "sort" => 5, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 3, "slug" => Str::slug("Green tea latte"), "name_ko" => "녹차라떼", "name_en" => "Green tea latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/green-tea-latte.jpg", "sort" => 1, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 3, "slug" => Str::slug("Chocolate latte"), "name_ko" => "초코라떼", "name_en" => "Chocolate latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/chocolate-latte.jpg", "sort" => 2, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 3, "slug" => Str::slug("Sweet potato latte"), "name_ko" => "고구마라떼", "name_en" => "Sweet potato latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/sweet-potato-latte.jpg", "sort" => 3, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 3, "slug" => Str::slug("Grain latte"), "name_ko" => "곡물라떼", "name_en" => "Grain latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/grain-latte.jpg", "sort" => 4, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 3, "slug" => Str::slug("Strawberry latte"), "name_ko" => "딸기라떼", "name_en" => "Strawberry latte", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/strawberry-latte.jpg", "sort" => 5, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
         ];
         Product::insert($drinks);
 
@@ -82,7 +82,7 @@ class TestController extends Controller
                 "slug" => Str::slug("Milk shake"),
                 "name_ko" => "밀크쉐이크",
                 "name_en" => "Milk shake",
-                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/milk-shake.jpg",
+                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/milk-shake.jpg",
                 "sort" => 1,
                 "star" => false,
                 "status" => "sell",
@@ -91,7 +91,7 @@ class TestController extends Controller
                 "slug" => Str::slug("Strawberry shake"),
                 "name_ko" => "딸기쉐이크",
                 "name_en" => "Strawberry shake",
-                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/strawberry-shake.jpg",
+                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/strawberry-shake.jpg",
                 "sort" => 2,
                 "star" => false,
                 "status" => "sell",
@@ -101,7 +101,7 @@ class TestController extends Controller
                 "slug" => Str::slug("Plain yogurt smoothie"),
                 "name_ko" => "플레인요거트스무디",
                 "name_en" => "Plain yogurt smoothie",
-                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/plain-yogurt-smoothie.jpg",
+                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/plain-yogurt-smoothie.jpg",
                 "sort" => 3,
                 "star" => false,
                 "status" => "sell",
@@ -110,7 +110,7 @@ class TestController extends Controller
                 "slug" => Str::slug("Cookies and Cream shake"),
                 "name_ko" => "쿠앤크쉐이크",
                 "name_en" => "Cookies and Cream shake",
-                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/cookies-and-cream-shake.jpg",
+                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/cookies-and-cream-shake.jpg",
                 "sort" => 4,
                 "star" => false,
                 "status" => "sell",
@@ -119,7 +119,7 @@ class TestController extends Controller
                 "slug" => Str::slug("Banana shake"),
                 "name_ko" => "바나나쉐이크",
                 "name_en" => "Banana shake",
-                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/banana-shake.jpg",
+                "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/banana-shake.jpg",
                 "sort" => 5,
                 "star" => true,
                 "status" => "sell",
@@ -128,11 +128,11 @@ class TestController extends Controller
         Product::insert($shakes);
 
         $ade = [
-            ["category_id" => 5, "slug" => Str::slug("Lemonade"), "name_ko" => "레몬에이드", "name_en" => "Lemonade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/lemonade.gif", "sort" => 1, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 5, "slug" => Str::slug("Grapefruit ade"), "name_ko" => "자몽에이드", "name_en" => "Grapefruit ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/grapefruit-ade.jpg", "sort" => 2, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 5, "slug" => Str::slug("Cherry ade"), "name_ko" => "체리에이드", "name_en" => "Cherry ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/cherry-ade.jpg", "sort" => 3, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 5, "slug" => Str::slug("Lemon and Pomegranate shake"), "name_ko" => "레몬석류에이드", "name_en" => "Lemon and Pomegranate shake", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/lemon-and-pomegranate-shake.jpg", "sort" => 4, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
-            ["category_id" => 5, "slug" => Str::slug("Ginc ade"), "name_ko" => "진크에이드", "name_en" => "Ginc ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/ginc-ade.jpg", "sort" => 5, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Lemonade"), "name_ko" => "레몬에이드", "name_en" => "Lemonade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/lemonade.gif", "sort" => 1, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Grapefruit ade"), "name_ko" => "자몽에이드", "name_en" => "Grapefruit ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/grapefruit-ade.jpg", "sort" => 2, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Cherry ade"), "name_ko" => "체리에이드", "name_en" => "Cherry ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/cherry-ade.jpg", "sort" => 3, "star" => false, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Lemon and Pomegranate shake"), "name_ko" => "레몬석류에이드", "name_en" => "Lemon and Pomegranate shake", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/lemon-and-pomegranate-shake.jpg", "sort" => 4, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
+            ["category_id" => 5, "slug" => Str::slug("Ginc ade"), "name_ko" => "진크에이드", "name_en" => "Ginc ade", "thumbnail" => "https://coffee-order.s3.ap-northeast-2.amazonaws.com/public/pruducts/1/coffee/ginc-ade.jpg", "sort" => 5, "star" => true, "status" => "sell", "created_at" => Carbon::now(), "updated_at" => Carbon::now()],
         ];
         Product::insert($ade);
 
