@@ -5,7 +5,6 @@ namespace App\Http\Repositories;
 use App\Models\Category;
 use App\Models\Office;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use JetBrains\PhpStorm\ArrayShape;

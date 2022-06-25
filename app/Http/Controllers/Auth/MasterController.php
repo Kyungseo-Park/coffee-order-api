@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
 use App\Http\Requests\InvitationRequest;
 use App\Jobs\SendEmail;
-use App\Models\User;
 use App\Traits\ApiResponse;
 
 class MasterController extends Controller
