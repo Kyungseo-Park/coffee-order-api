@@ -1,5 +1,9 @@
 # ![Logo](https://www.dnsevercorp.com/assets/images/dnsever-logo.svg)
 
+![example workflow](https://github.com/kyungseo-park/coffee-order-api/actions/workflows/pre-composer.yml/badge.svg)
+![example workflow](https://github.com/kyungseo-park/coffee-order-api/actions/workflows/pre-package.yml/badge.svg)
+![example workflow](https://github.com/kyungseo-park/coffee-order-api/actions/workflows/main.yml/badge.svg)
+
 # Coffee Order API
 
 [프론트엔드 레포지토리](https://github.com/northfacegawd/coffee-order) 는 여기서..

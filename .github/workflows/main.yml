@@ -9,6 +9,7 @@ on:
 jobs:
   depoly:
     runs-on: ubuntu-latest
+    needs: ['composer-build', 'package-build']
     steps:
       - uses: actions/checkout@v1
       - name: Docker login

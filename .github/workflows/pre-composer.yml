@@ -1,0 +1,27 @@
+name: composer-build
+
+on:
+  push:
+    paths:
+      - 'composer.json'
+      - 'composer.lock'
+  pull_request:
+    paths:
+      - 'composer.json'
+      - 'composer.lock'
+
+jobs:
+  composer-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_TOKEN }} ${{ secrets.DOCKER_HOST }}
+      - name: Build
+        run: docker build -f ./docker/Dockerfile-composer -t coffe-order/api .
+      - name: Tags
+        run: |
+          docker tag coffe-order/api ${{ secrets.DOCKER_HOST }}/coffe-order/api:composer
+      - name: Push
+        run: |
+          docker push ${{ secrets.DOCKER_HOST }}/coffe-order/api:composer
