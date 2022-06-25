@@ -18,10 +18,10 @@ jobs:
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_TOKEN }} ${{ secrets.DOCKER_HOST }}
       - name: Build
-        run: docker build -f ./docker/Dockerfile-composer -t coffe-order/api .
+        run: docker build -f ./docker/Dockerfile-composer -t coffee-order/api .
       - name: Tags
         run: |
-          docker tag coffe-order/api ${{ secrets.DOCKER_HOST }}/coffe-order/api:composer
+          docker tag coffee-order/api ${{ secrets.DOCKER_HOST }}/coffee-order/api:composer
       - name: Push
         run: |
-          docker push ${{ secrets.DOCKER_HOST }}/coffe-order/api:composer
+          docker push ${{ secrets.DOCKER_HOST }}/coffee-order/api:composer
