@@ -29,6 +29,7 @@ class ProductResource extends JsonResource
             "sort" => $this->sort,
             "status" => $this->status,
             "options" => OptionsResource::collection($this->options),
+            "comments" => "조유리가 데뷔를 언제했는지.. 10년 내로 아이유를 뛰어넘을겁니다."
         ];
     }
 }
